@@ -3,11 +3,11 @@ import mongoose from "mongoose";
 const orderSchema = mongoose.Schema({
     userId: {type: String, required: true, ref: "User"},
     items: [{
-        product: {type: String, required: true, ref: "product"},
+        product: {type: mongoose.Schema.Types.ObjectId, required: true, ref: "product"},
         quantity: {type: Number, required: true}
     }],
     amount: {type: Number, required: true},
-    address: {type: String, required: true, ref: "Address"},
+    address: {type: mongoose.Schema.Types.ObjectId, required: true, ref: "Address"},
     status: {type: String, required: true, default: "Order Placed"},
     date: {type: Date, required: true}
 })
